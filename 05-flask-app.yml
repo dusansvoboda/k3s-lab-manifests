@@ -5,7 +5,7 @@ metadata:
   name: flask-app
   namespace: todoapp
 spec:
-  replicas: 2 # Let's run two copies for high availability!
+  replicas: 3 # Let's run two copies for high availability!
   selector:
     matchLabels:
       app: flask-app
