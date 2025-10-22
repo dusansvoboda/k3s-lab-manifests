@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mariadb-pvc
+  namespace: todoapp # Must be in our namespace
+spec:
+  storageClassName: ""  # <--- ADD THIS LINE - matching to unset
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi # Requests 1Gi from any available PV
