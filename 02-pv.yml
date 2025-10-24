@@ -1,12 +1,22 @@
-apiVersion: v1
-kind: PersistentVolume
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: mariadb-pv
+  name: todo-app-deployment
+  namespace: todo-app
 spec:
-  capacity:
-    storage: 1Gi # Size doesn't matter much for NFS, but it's required
-  accessModes:
-    - ReadWriteMany # Allows multiple nodes to read/write (good for K8s)
-  nfs:
-    path: /srv/nfs/k3s-pv # The path on our NFS server
-    server: 192.168.100.50 # The IP of our NFS server
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo-app
+  template:
+    metadata:
+      labels:
+        app: todo-app
+    spec:
+      containers:
+      - name: todo-app
+        # --- THIS IS THE LINE WE WILL AUTOMATE ---
+        image: ghcr.io/dusansvoboda/python-todo-app:v1.0
+        # ----------------------------------------
+        ports:
+        - containerPort: 5000
