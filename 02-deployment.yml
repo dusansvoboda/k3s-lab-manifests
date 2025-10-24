@@ -13,6 +13,8 @@ spec:
       labels:
         app: todo-app
     spec:
+      imagePullSecrets:
+      - name: ghcr-pull-secret
       containers:
       - name: todo-app
         # --- THIS IS THE LINE WE WILL AUTOMATE ---
