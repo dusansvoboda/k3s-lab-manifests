@@ -14,11 +14,11 @@ spec:
         app: todo-app
     spec:
       imagePullSecrets:
-      - name: ghcr-pull-secret
+        - name: ghcr-pull-secret
       containers:
-      - name: todo-app
-        # --- THIS IS THE LINE WE WILL AUTOMATE ---
-        image: ghcr.io/dusansvoboda/python-todo-app:v1.2
-        # ----------------------------------------
-        ports:
-        - containerPort: 5000
+        - name: todo-app
+          # --- THIS IS THE LINE WE WILL AUTOMATE ---
+          image: ""
+          # ----------------------------------------
+          ports:
+            - containerPort: 5000
