@@ -18,7 +18,7 @@ spec:
       containers:
       - name: todo-app
         # --- THIS IS THE LINE WE WILL AUTOMATE ---
-        image: ghcr.io/dusansvoboda/python-todo-app:v1.0
+        image: ghcr.io/dusansvoboda/python-todo-app:v1.1
         # ----------------------------------------
         ports:
         - containerPort: 5000
