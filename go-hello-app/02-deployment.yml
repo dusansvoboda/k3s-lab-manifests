@@ -14,8 +14,8 @@ spec:
         app: hello-app
     spec:
       containers:
-      - name: hello-app
-        # We'll build and push v1.0 manually one time to start
-        image: ghcr.io/dusansvoboda/go-hello-app:v1.1 
-        ports:
-        - containerPort: 8080
+        - name: hello-app
+          # We'll build and push v1.0 manually one time to start
+          image: ghcr.io/dusansvoboda/go-hello-app:8ab2a02e497a91714ba4aa1ac160efbadaa0aa52
+          ports:
+            - containerPort: 8080
