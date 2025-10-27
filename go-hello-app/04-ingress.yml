@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-app-ingress
+  namespace: hello-app
+  annotations:
+    # Tell Kubernetes this Ingress is for NGINX
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: "ds-unix.xyz" # Your domain!
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: hello-app-service
+            port:
+              number: 80
